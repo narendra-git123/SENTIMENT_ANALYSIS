@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alien Meets Aarav</title>
+    <style>
+        body {
+            background: url("{% static 'images/common_bg.jpg' %}") no-repeat center center fixed;
+            background-size:cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .chat-box {
+            background: #222;
+            padding: 13px;
+            border-radius: 12px;
+            width: 400px;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 30px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+        .alien {
+            background: #4CAF50;
+            text-align: left;
+        }
+        .human {
+            background: #2196F3;
+            text-align: right;
+        }
+
+        /* indent text after colon */
+        .indent-text {
+            display: inline-block;
+            text-indent: -1.2em;
+            padding-left: 1.2em;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        /* Previous button style */
+        .btn-prev {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background: rgb(241, 241, 240);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .btn-prev:hover {
+            background:red;  
+        
+            
+        }
+        .btn-next {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background: rgb(241, 241, 240);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .btn-next:hover {
+            background: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+
+        <div class="message alien">
+            <h2>👽 Gravas: <span class="indent-text">On my planet, we have knowledge but no feelings</span></h2>
+        </div>
+
+        <div class="message human">
+            <h2>🧒Aarav: <span class="indent-text">No feelings? That sounds strange… why me ❓</span></h2>
+        </div>
+        
+        <div class="buttons">
+            <form action="{% url 'screen3' %}">
+                <button type="submit" class="btn-prev">⬅️ Previous</button>
+            </form>
+
+            <form action="{% url 'screen5' %}">
+                <button type="submit" class="btn-next">Next ➡️</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+  

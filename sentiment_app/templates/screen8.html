@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Quiz Q1</title>
+
+<style>
+  body{
+    background:url("{% static 'images/some.jpg' %}") no-repeat center center fixed;
+    background-size:cover;font-family:Arial,sans-serif;color:#fff;display:flex;
+    justify-content:center;align-items:center;height:100vh;margin:0
+  }
+  .chat-box{background:#222;padding:18px;border-radius:14px;width:420px}
+  .message{margin-bottom:14px;padding:22px;border-radius:10px;line-height:1.5}
+  .human{background:#2196F3;text-align:right}
+  .options{display:flex;gap:10px;justify-content:center;margin:8px 0 4px}
+  .opt{font-size:28px;padding:10px 16px;border:none;border-radius:10px;cursor:pointer;background:#f1f1f1}
+  .opt:focus{outline:3px solid #ffb74d}
+  .feedback{margin-top:10px;font-size:18px}
+  .nav{display:flex;justify-content:space-between;margin-top:16px}
+  .btn{padding:10px 18px;font-size:18px;border:none;border-radius:10px;cursor:pointer;background:#f1f1f1;transition:background 0.3s}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+
+  /* Different hover colors */
+  .prev-btn:hover { background:red; color:#fff; }   /* orange-red */
+  .next-btn:hover { background:darkorange; color:#fff; }   /* green */
+</style>
+
+</head>
+<body>
+  <div class="chat-box">
+    <div class="message human">
+      <h2>🧒 Aarav: If you <u>win a game</u>, what do you feel?</h2>
+    </div>
+
+    <div class="options">
+      <button class="opt" data-answer="wrong">😢</button>
+      <button class="opt" data-answer="right">😊</button>
+      <button class="opt" data-answer="wrong">😐</button>
+    </div>
+
+    <div id="feedback" class="feedback"></div>
+
+    <div class="nav">
+      <form action="{% url 'screen7' %}">
+        <button class="btn prev-btn">⬅️ Previous</button>
+      </form>
+      <form action="{% url 'screen9' %}">
+        <button id="nextBtn" class="btn next-btn" disabled>Next ➡️</button>
+      </form>
+    </div>
+
+  </div>
+
+<script>
+  const fb = document.getElementById('feedback');
+  const nextBtn = document.getElementById('nextBtn');
+  document.querySelectorAll('.opt').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      if(b.dataset.answer==='right'){
+        fb.textContent = "✅ Correct! Winning a game feels 😊 Happy.";
+        nextBtn.disabled = false;
+      }else{
+        fb.textContent = "❌ Not quite. That emoji isn’t right here. Winning feels 😊 Happy!";
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alien Meets Aarav</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        /* Left side (content area) */
+        .left {
+            width: 50%;
+            background: black;   /* Black background for readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Right side (image area) */
+        .right {
+            width: 50%;
+            background: url("{% static 'images/end.jpg' %}") no-repeat center center;
+            background-size: contain;  /* Keep full image visible */
+            background-color: black;   /* Fill any empty space */
+        }
+
+        .chat-box {
+            background: black;
+            padding: 15px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 700px;
+            font-size: 14px;
+            max-height: 1000px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 8px;
+            border-radius: 8px;
+            line-height: 1.5;
+            font-size: large ;
+        }
+        .alien { background: #4CAF50; text-align: left; }
+        .human { background: #2196F3; text-align: right; }
+
+        .indent-text {
+            display: inline-block;
+            text-indent: -1.2em;
+            padding-left: 1.2em;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .btn-prev, .btn-repeat {
+            padding: 10px 20px;
+            background: rgb(241, 241, 240);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .btn-prev:hover { background: red; }
+        .btn-repeat:hover { background: darkorange; }
+    </style>
+</head>
+<body>
+    <!-- Left side with content -->
+    <div class="left">
+        <div class="chat-box">
+            <div class="message alien">
+                <h2>👽 Gravas: <span class="indent-text">Look for water 💧 — where there’s water, life can grow. 
+                Look for oxygen and carbon in the air 🌬️ — signs of breathing and living things. 
+                Look for strange lights or signals in the sky 📡 — they may come from other civilizations.</span></h2>
+            </div>
+
+            <div class="message alien">
+                <h2>👽 Gravas: <span class="indent-text">If you follow these clues, maybe one day you’ll even find my planet, Numeria.”</span></h2>
+            </div>
+
+            <div class="buttons">
+                <form action="{% url 'screen11' %}">
+                    <button type="submit" class="btn-prev">⬅️ Previous</button>
+                </form>
+
+                <form action="{% url 'intro' %}">
+                    <button type="submit" class="btn-repeat">Repeat ➡️</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right side with background image -->
+    <div class="right"></div>
+</body>
+</html>

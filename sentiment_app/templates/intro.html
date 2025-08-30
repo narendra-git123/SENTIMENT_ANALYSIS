@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>Intro - Gravas Meets Aarav</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url("static/images/intro_bg.jpg.png") no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+        }
+        h2 {
+            font-size: 28px;
+            line-height: 1.8;
+        }
+        .nav-buttons {
+            margin-top: 30px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 20px;
+            display: inline-block;
+        }
+        .nav-buttons a:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay">
+        <h2>
+            🌌 One evening, a friendly alien named 
+            <span style="color:#4CAF50;">Gravas</span> landed on Earth.<br><br>
+            He met a curious child named 
+            <span style="color:#2196F3;">Aarav</span>.<br><br>
+            Gravas wanted to learn about human feelings and emotions.<br><br>
+            Aarav decided to teach Gravas about 
+            <b>Sentiment Analysis</b> — a way to understand emotions in text.
+        </h2>
+
+        <div class="nav-buttons">
+            <a href="{% url 'screen1' %}">Start Conversation ➡️</a>
+        </div>
+    </div>
+
+</body>
+</html>
